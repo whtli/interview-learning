@@ -1,4 +1,4 @@
-package org.example.java.basic._6_sugar;
+package org.example.java.basic.ch6_sugar;
 
 /**
  * @author: whtli

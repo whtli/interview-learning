@@ -1,4 +1,4 @@
-package org.example.java.basic._5_unsafe;
+package org.example.java.basic.ch5_unsafe;
 
 import sun.misc.Unsafe;
 

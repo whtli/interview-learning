@@ -1,4 +1,4 @@
-package org.example.java.basic._2_reflect;
+package org.example.java.basic.ch2_reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -15,7 +15,7 @@ public class Main {
         /**
          * 获取 TargetObject 类的 Class 对象并且创建 TargetObject 类实例
          */
-        Class<?> targetClass = Class.forName("org.example.java.basic._2_reflect.TargetObject");
+        Class<?> targetClass = Class.forName("org.example.java.basic.ch2_reflect.TargetObject");
         TargetObject targetObject = (TargetObject) targetClass.newInstance();
 
         /**

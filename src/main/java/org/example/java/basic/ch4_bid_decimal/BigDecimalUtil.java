@@ -1,4 +1,4 @@
-package org.example.java.basic._4_bid_decimal;
+package org.example.java.basic.ch4_bid_decimal;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

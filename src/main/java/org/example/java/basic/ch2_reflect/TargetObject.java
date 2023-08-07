@@ -1,4 +1,4 @@
-package org.example.java.basic._2_reflect;
+package org.example.java.basic.ch2_reflect;
 
 /**
  * @author: whtli

@@ -1,4 +1,4 @@
-package org.example.java.basic._1_copy;
+package org.example.java.basic.ch1_copy;
 
 /**
  * @author: whtli
