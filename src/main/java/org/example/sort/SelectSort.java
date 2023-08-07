@@ -3,7 +3,7 @@ package org.example.sort;
 /**
  * @author: whtli
  * @date: 2023/04/07
- * @description:
+ * @description: 选择排序
  */
 public class SelectSort {
     public static void main(String[] args) {

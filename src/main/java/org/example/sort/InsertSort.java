@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author: whtli
  * @date: 2023/04/06
- * @description:
+ * @description: 插入排序
  */
 public class InsertSort {
     public static void main(String[] args) {

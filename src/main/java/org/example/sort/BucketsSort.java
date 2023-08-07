@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author: whtli
  * @date: 2023/04/07
- * @description:
+ * @description: 桶排序
  */
 public class BucketsSort {
     public static void main(String[] args) {

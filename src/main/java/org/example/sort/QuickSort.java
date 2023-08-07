@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author: whtli
  * @date: 2023/04/06
- * @description:
+ * @description: 快排
  */
 public class QuickSort {
     public static void main(String[] args) {
@@ -18,19 +18,18 @@ public class QuickSort {
         Sort1 sort1 = new Sort1();
         Sort2 sort2 = new Sort2();
         Sort3 sort3 = new Sort3();
-        sort1.quickSort(nums1, 0, n1 - 1);
+        sort1.quickSort(nums2, 0, n2 - 1);
         sort2.quickSort(nums2, 0, n2 - 1);
-        sort3.quickSort(nums3, 0, n3 - 1);
-        Arrays.stream(nums1).forEach(System.out::print);
+        sort3.quickSort(nums2, 0, n2 - 1);
+        Arrays.stream(nums2).forEach(System.out::print);
         System.out.println();
         Arrays.stream(nums2).forEach(System.out::print);
         System.out.println();
-        Arrays.stream(nums3).forEach(System.out::print);
+        Arrays.stream(nums2).forEach(System.out::print);
     }
-
-
 }
 
+/* 哨兵划分（常规） */
 class Sort1 {
     public void quickSort(int[] nums, int left, int right) {
         if (left >= right) {
@@ -66,6 +65,7 @@ class Sort1 {
     }
 }
 
+/* 哨兵划分（三数取中值） */
 class Sort2 {
     public void quickSort(int[] nums, int left, int right) {
         if (left >= right) {
@@ -115,8 +115,8 @@ class Sort2 {
     }
 }
 
+/* 尾递归优化 */
 class Sort3 {
-    /* 快速排序（尾递归优化） */
     public void quickSort(int[] nums, int left, int right) {
         while (left < right) {
             int pivot = partition(nums, left, right);

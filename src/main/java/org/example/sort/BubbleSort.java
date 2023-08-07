@@ -5,9 +5,9 @@ import java.util.Arrays;
 /**
  * @author: whtli
  * @date: 2023/04/06
- * @description:
+ * @description: 冒泡排序
  */
-public class BubboSort {
+public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
         int n = nums.length;

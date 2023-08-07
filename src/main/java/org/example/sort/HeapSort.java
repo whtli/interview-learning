@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author: whtli
  * @date: 2023/04/06
- * @description:
+ * @description: 堆排序
  */
 
 public class HeapSort {
@@ -27,6 +27,9 @@ public class HeapSort {
     }
 }
 
+/**
+ * 小顶堆
+ */
 class MinHeap {
     List<Integer> minHeap;
 
@@ -134,6 +137,9 @@ class MinHeap {
     }
 }
 
+/**
+ * 大顶堆
+ */
 class MaxHeap {
     List<Integer> maxHeap;
 
@@ -228,7 +234,7 @@ class MaxHeap {
     public void adjustDown(int i) {
         while (true) {
             int m = i;
-            // 获取i的父节点下标
+            // 获取i的孩子节点下标
             int l = getIndexOfLeftChild(i);
             int r = getIndexOfRightChild(i);
             // 当“越过末尾节点”或“无需再调整”时，结束堆化
@@ -243,10 +249,8 @@ class MaxHeap {
             }
             // 交换节点值
             swap(i, m);
-            // 继续向上堆化
+            // 继续向下堆化
             i = m;
         }
     }
-
-
 }
