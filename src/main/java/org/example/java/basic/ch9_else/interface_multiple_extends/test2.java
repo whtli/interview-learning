@@ -1,4 +1,4 @@
-package org.example.interfaceMultipleExtends;
+package org.example.java.basic.ch9_else.interface_multiple_extends;
 
 /**
  * @author: whtli
