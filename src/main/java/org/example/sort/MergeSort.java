@@ -14,6 +14,7 @@ public class MergeSort {
         for (int i : nums) {
             System.out.print(i + " ");
         }
+
         int n = nums.length;
         int[] temp = new int[n];
         MergeSortSolution solution = new MergeSortSolution();
@@ -63,10 +64,13 @@ class MergeSortSolution {
 
         for (int k = left; k <= right; k++) {
             if (i == mid + 1) {
+                // 左半边已经处理完毕
                 nums[k] = temp[j++];
             } else if (j == right + 1) {
+                // 右半边已经处理完毕
                 nums[k] = temp[i++];
             } else if (temp[i] <= temp[j]) {
+                // 正常对比，取较小值
                 nums[k] = temp[i++];
             } else {
                 nums[k] = temp[j++];
