@@ -1,6 +1,7 @@
 package org.example.sort;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.EmptyStackException;
 import java.util.List;
 
@@ -99,9 +100,7 @@ class MinHeap {
     }
 
     public void swap(int i, int j) {
-        int t = minHeap.get(i);
-        minHeap.set(i, minHeap.get(j));
-        minHeap.set(j, t);
+        Collections.swap(minHeap, i, j);
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
@@ -209,9 +208,7 @@ class MaxHeap {
     }
 
     public void swap(int i, int j) {
-        int t = maxHeap.get(i);
-        maxHeap.set(i, maxHeap.get(j));
-        maxHeap.set(j, t);
+        Collections.swap(maxHeap, i, j);
     }
 
     /* 从结点 i 开始，从底至顶堆化 */
@@ -224,7 +221,7 @@ class MaxHeap {
                 break;
             }
             // 交换节点值
-            swap(p, i);
+            swap(i, p);
             // 继续向上堆化
             i = p;
         }
