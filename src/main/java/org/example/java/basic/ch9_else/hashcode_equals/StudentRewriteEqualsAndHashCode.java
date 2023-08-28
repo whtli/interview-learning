@@ -44,7 +44,7 @@ class Student {
             return false;
         }
         Student sdu = (Student) obj;
-        return this.id == sdu.id && this.classId == sdu.classId && Objects.equals(name, sdu.name);
+        return id == sdu.id && classId == sdu.classId && Objects.equals(name, sdu.name);
     }
 
     @Override
@@ -52,10 +52,9 @@ class Student {
         return hash(id, name, classId);
     }
 
-
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", name='" + name + '\'' + ", classId=" + classId + '}';
+        return "Student {" + "id=" + id + ", name=" + name + ", classId=" + classId + "}";
     }
 }
 
