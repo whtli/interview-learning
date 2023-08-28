@@ -1,4 +1,4 @@
-package org.example;
+package org.example.java.basic.ch9_else.hashcode_equals;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +21,7 @@ public class HashCodeAndEquals {
          * 原理：
          * 两个对象相同，则这两个对象的hashcode一定相同
          * 两个对象的hashcode不相同，则这两个对象一定不相同（此处使用的原理）
+         *
          * 但是两个对象的hashcode相同，这两个对象不一定相同（哈希冲突）
          *
          */
