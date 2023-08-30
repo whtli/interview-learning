@@ -55,7 +55,6 @@ class Sort1 {
         }
         swap(nums, l, base);
         return l;
-
     }
 
     public void swap(int[] nums, int i, int j) {
@@ -87,7 +86,6 @@ class Sort2 {
         } else {
             return right;
         }
-
     }
 
     /* 哨兵划分（三数取中值） */
@@ -105,7 +103,6 @@ class Sort2 {
         }
         swap(nums, l, base);
         return l;
-
     }
 
     public void swap(int[] nums, int i, int j) {
@@ -149,7 +146,6 @@ class Sort3 {
         }
         swap(nums, l, base);
         return l;
-
     }
 
     public void swap(int[] nums, int i, int j) {
