@@ -27,8 +27,6 @@ public class HashCodeAndEquals {
          */
         System.out.println(map.get(new User("hello")));
     }
-
-
 }
 
 class User {
@@ -37,6 +35,7 @@ class User {
     public User(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
@@ -46,7 +45,6 @@ class User {
         User user = (User) obj;
         return user.getName().equals(this.name);
     }
-
 
     @Override
     public int hashCode() {
