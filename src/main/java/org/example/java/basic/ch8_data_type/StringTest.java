@@ -43,58 +43,90 @@ class FinalTest {
 /**
  * String支持正则表达式匹配
  */
-class Regex {
+class RegexTest {
     public static void main(String[] args) {
-        String str = "aSF1 34Asm,h4+0e@";
+        String str = "aSF1 34Asssm,h4+0e@";
         System.out.print("str: \t");
         System.out.println(str);
         System.out.println();
         // \s	Any whitespace character
         System.out.println("---------- \\s: Any whitespace character --------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("\\s", ""));
         System.out.println();
         // \S	Any non-whitespace character
         System.out.println("---------- \\S: Any non-whitespace character ----------");
+        System.out.println(str);
         System.out.println(str.replaceAll("\\S", ""));
         System.out.println();
         // \d	Any digit
         System.out.println("---------- \\d: Any digit -----------------------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("\\d", ""));
         System.out.println();
         // \D	Any non-digit
         System.out.println("---------- \\D: Any non-digit -------------------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("\\D", ""));
         System.out.println();
         // \w	Any word character (letter, number, underscore)
         System.out.println("---------- \\w: Any word character --------------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("\\w", ""));
         System.out.println();
         // \W	Any non-word character
         System.out.println("---------- \\W: Any non-word character ----------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("\\W", ""));
         System.out.println();
         // (a|b)	a or b
         System.out.println("---------- (a|b): a or b -------------------------------------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("(\\d|\\W)", ""));
         System.out.println();
         System.out.println("---------- (a|b):  -------------------------------------------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("(S|h|m)", ""));
         System.out.println();
         // [abc]	A single character of: a, b, or c
         System.out.println("---------- [abc]: A single character of:a, b, or c -----------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("[Shm]", ""));
         System.out.println();
         // [^abc]	Any single character except: a, b, or c
         System.out.println("---------- [^abc]: Any single character except:a, b, or c ----------");
+        System.out.println(str);
         System.out.println(str.replaceAll("[^Shm]", ""));
         System.out.println();
         // [a-z]	Any single character in the range a-z
         System.out.println("---------- [a-z]: Any single character in the range a-z ------------");
+        System.out.println(str);
         System.out.println(str.replaceAll("[a-z]", ""));
         System.out.println();
         // [a-zA-Z]	Any single character in the range a-z or A-Z
         System.out.println("---------- [a-zA-Z]: Any single character in the range a-z or A-Z --");
+        System.out.println(str);
         System.out.println(str.replaceAll("[a-zA-Z]", ""));
+        System.out.println();
+        // x+	One or more of x
+        System.out.println("---------- x+: One or more of x --");
+        System.out.println(str);
+        System.out.println(str.replaceAll("s+", ""));
+        System.out.println();
+        // a{3}	Exactly 3 of a
+        System.out.println("---------- a{3}: Exactly 3 of a --");
+        System.out.println(str);
+        System.out.println(str.replaceAll("s{2}", ""));
+        System.out.println();
+        // a{3,}	3 or more of a
+        System.out.println("---------- a{3,}: 3 or more of a --");
+        System.out.println(str);
+        System.out.println(str.replaceAll("s{2,}", ""));
+        System.out.println();
+        // a{3,6}	Between 3 and 6 of a
+        System.out.println("---------- a{3,6}: Between 3 and 6 of a --");
+        System.out.println(str);
+        System.out.println(str.replaceAll("s{4,7}", ""));
         System.out.println();
     }
 }
