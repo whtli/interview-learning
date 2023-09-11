@@ -78,7 +78,7 @@ public class StudentRewriteEqualsAndHashCode {
             map.putIfAbsent(sdu.getClassId(), new ArrayList<>());
             List<Student> students = map.get(sdu.getClassId());
             if (!students.contains(sdu)) {
-                map.get(sdu.getClassId()).add(sdu);
+                students.add(sdu);
             }
 
             map2.putIfAbsent(sdu, sdu.getId());
