@@ -80,8 +80,6 @@ public class StudentRewriteEqualsAndHashCode {
             if (!students.contains(sdu)) {
                 students.add(sdu);
             }
-
-            map2.putIfAbsent(sdu, sdu.getId());
         }
 
         for (Map.Entry<Integer, List<Student>> entry : map.entrySet()) {
@@ -91,6 +89,9 @@ public class StudentRewriteEqualsAndHashCode {
         }
         System.out.println("------------------------------------------");
 
+        for (Student sdu : list) {
+            map2.putIfAbsent(sdu, sdu.getId());
+        }
         List<Map.Entry<Student, Integer>> list2 = new ArrayList<>(map2.entrySet());
         list2.sort((o1, o2) -> o1.getValue() - o2.getValue());
         for (Map.Entry<Student, Integer> entry : list2) {
