@@ -6,7 +6,14 @@ package org.example.java.basic.ch8_else.string_relation;
  * @description: String类相关的知识点
  */
 public class StringTest {
-
+    public static void main(String[] args) {
+        // String 不可变的原因不是单纯因为final关键字修饰其内部的value数组
+        // 还要结合private关键字、String类本身被final修饰等因素
+        final char[] value = {'a', 'b', 'c'};
+        System.out.println(value);
+        value[0] = 'd';
+        System.out.println(value);
+    }
 }
 
 class FinalTest {
