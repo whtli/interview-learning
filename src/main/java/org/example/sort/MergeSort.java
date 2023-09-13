@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+        int[] nums = {5,2,3,1};
         System.out.print("排序前：");
         for (int i : nums) {
             System.out.print(i + " ");
@@ -58,12 +58,14 @@ class MergeSortSolution {
      */
     public void merge(int[] nums, int left, int mid, int right, int[] temp) {
         // 将数组复制到临时数组中
-        temp = Arrays.copyOfRange(nums, left, right + 1);
-
+        // temp = Arrays.copyOfRange(nums, left, right + 1);
+        for (int i = left; i <= right; i++) {
+            temp[i] = nums[i];
+        }
         int i = left, j = mid + 1;
         int k = left;
         // 正常对比，取较小值
-        while (i < mid + 1 && j < right + 1) {
+        while (i <= mid && j <= right) {
             if (temp[i] <= temp[j]) {
                 nums[k++] = temp[i++];
             } else {
@@ -71,11 +73,11 @@ class MergeSortSolution {
             }
         }
         // 右半边已经处理完毕
-        while (i < mid + 1) {
+        while (i <= mid) {
             nums[k++] = temp[i++];
         }
         // 左半边已经处理完毕
-        while (j < right + 1) {
+        while (j <= right) {
             nums[k++] = temp[j++];
         }
     }
