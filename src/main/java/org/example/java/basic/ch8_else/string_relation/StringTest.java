@@ -13,6 +13,41 @@ public class StringTest {
         System.out.println(value);
         value[0] = 'd';
         System.out.println(value);
+
+        // 在堆中创建字符串对象”ab“
+        // 将字符串对象”ab“的引用保存在字符串常量池中
+        String aa = "ab";
+        // 直接返回字符串常量池中字符串对象”ab“的引用
+        String bb = "ab";
+        System.out.println(aa == bb);// true
+
+        // 常量池中的对象 str
+        String str1 = "str";
+        // 常量池中的对象 ing
+        String str2 = "ing";
+        // 常量池中的对象 string
+        // 编译器在程序编译期就可以确定值的常量可以进行常量折叠
+        String str3 = "str" + "ing";
+        String str4 = str1 + str2;
+        // 常量池中的对象 string
+        String str5 = "string";
+        // false
+        System.out.println(str3 == str4);
+        // true
+        System.out.println(str3 == str5);
+        // false
+        System.out.println(str4 == str5);
+
+        // 字符串使用 final 关键字声明之后，可以让编译器当做常量来处理。
+
+        final String str6 = "str";
+        final String str7 = "ing";
+        // 常量池中的对象，编译器在程序编译期就可以确定值的常量
+        String c = "str" + "ing";
+        // 编译器在程序编译期就可以确定它的值，其效果就相当于访问常量。
+        String d = str6 + str7;
+        // true
+        System.out.println(c == d);
     }
 }
 
