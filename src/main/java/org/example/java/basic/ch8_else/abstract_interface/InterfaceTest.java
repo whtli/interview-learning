@@ -1,4 +1,4 @@
-package org.example.java.basic.ch9_else.abstract_interface;
+package org.example.java.basic.ch8_else.abstract_interface;
 
 /**
  * @author: whtli

@@ -1,4 +1,4 @@
-package org.example.java.basic.ch9_else.changeable_params;
+package org.example.java.basic.ch8_else.changeable_params;
 
 /**
  * @author: whtli
