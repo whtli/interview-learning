@@ -181,7 +181,7 @@ class GenericTypes {
         // 编译时报错
         // list3.add(53);
 
-        // 绕过了编译时,运行时添加
+        // 绕过了编译时，在运行时添加 --> 无视泛型参数的安全检查，增加了安全问题
         Class clazz = list3.getClass();
         Method method = clazz.getMethod("add", Object.class);
         method.invoke(list3, 54);
