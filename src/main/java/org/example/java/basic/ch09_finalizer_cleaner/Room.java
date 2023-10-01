@@ -1,4 +1,4 @@
-package org.example.java.basic.ch8_else.finalizer_cleaner;
+package org.example.java.basic.ch09_finalizer_cleaner;
 
 
 import java.lang.ref.Cleaner;
