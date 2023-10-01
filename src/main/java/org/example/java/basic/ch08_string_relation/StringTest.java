@@ -1,4 +1,4 @@
-package org.example.java.basic.ch8_else.string_relation;
+package org.example.java.basic.ch08_string_relation;
 
 /**
  * @author: whtli
