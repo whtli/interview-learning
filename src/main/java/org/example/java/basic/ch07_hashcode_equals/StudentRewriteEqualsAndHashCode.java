@@ -1,4 +1,4 @@
-package org.example.java.basic.ch8_else.hashcode_equals;
+package org.example.java.basic.ch07_hashcode_equals;
 
 import java.util.*;
 
