@@ -1,4 +1,4 @@
-package org.example.java.basic.ch8_else.abstract_interface;
+package org.example.java.basic.ch16_abstract_interface;
 
 /**
  * @author: whtli
@@ -59,6 +59,7 @@ class AbstractInstance {
     public static void main(String[] args) {
         System.out.println(AbstractClassChild.CONSTANT_VALUE);
         System.out.println(AbstractClassChild.STATIC_VALUE);
+
         AbstractClassChild abstractClassChild1 = new AbstractClassChild();
         AbstractClassChild abstractClassChild2 = new AbstractClassChild(103);
         System.out.println(abstractClassChild1.INSTANCE_VALUE);

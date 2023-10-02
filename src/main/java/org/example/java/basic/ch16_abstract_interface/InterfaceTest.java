@@ -1,4 +1,4 @@
-package org.example.java.basic.ch8_else.abstract_interface;
+package org.example.java.basic.ch16_abstract_interface;
 
 /**
  * @author: whtli
@@ -22,13 +22,19 @@ interface Interface1 {
 }
 
 interface Interface2 {
-    // 接口中只能定义常量，不能定义实例变量
+    /**
+     * 接口中只能定义常量，不能定义实例变量
+     * 在Java 9及更高版本中，可以省略 public static final 修饰符，变量会被自动视为常量
+     * 例如以下两个，不管怎么简写，本质都是常量：
+      */
     public static final int CONSTANT_VALUE = 100;
-    // public int INSTANCE_VALUE;
-
+    public int CONSTANT_VALUE1 = 2100;
 }
 
 interface Interface3<T> {
+    /**
+     * 可以定义泛型接口
+     */
     public T method2();
 }
 
@@ -51,6 +57,7 @@ class InterfaceMultipleImplementation implements Interface1, Interface2, Interfa
 
     public static void main(String[] args) {
         System.out.println(InterfaceMultipleImplementation.CONSTANT_VALUE);
+        System.out.println(InterfaceMultipleImplementation.CONSTANT_VALUE1);
         InterfaceMultipleImplementation test = new InterfaceMultipleImplementation();
         test.method2();
     }
