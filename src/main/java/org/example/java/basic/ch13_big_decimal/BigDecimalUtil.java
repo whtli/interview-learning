@@ -174,4 +174,39 @@ public class BigDecimalUtil {
         BigDecimal b2 = new BigDecimal(v2);
         return b1.compareTo(b2);
     }
+
+    public static void main(String[] args) {
+        double ret1 = add(1.2d, 2.3d);
+        System.out.println(ret1);
+
+        double ret2 = subtract(1.2d, 2.3d);
+        System.out.println(ret2);
+
+        double ret3 = multiply(1.2d, 2.3d);
+        System.out.println(ret3);
+
+        double ret4 = divide(4.44444d, 2.0d, 3);
+        System.out.println(ret4);
+
+        double ret5 = round(4.4444d, 2);
+        System.out.println(ret5);
+
+        double ret6 = convertToFloat(4.12345678d);
+        System.out.println(ret6);
+
+        int ret7 = convertToInt(4.1234d);
+        System.out.println(ret7);
+
+        long ret8 = convertToLong(4.1234d);
+        System.out.println(ret8);
+
+        double ret9 = findMax(2.3d, 2.4d);
+        System.out.println(ret9);
+
+        double ret10 = findMin(2.3d, 2.4d);
+        System.out.println(ret10);
+
+        double ret11 = compareTo(2.43d, 2.44d);
+        System.out.println(ret11);
+    }
 }
