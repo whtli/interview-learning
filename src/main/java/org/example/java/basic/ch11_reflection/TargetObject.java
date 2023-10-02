@@ -1,4 +1,4 @@
-package org.example.java.basic.ch2_reflect;
+package org.example.java.basic.ch11_reflection;
 
 /**
  * @author: whtli
@@ -9,7 +9,7 @@ public class TargetObject {
     private String value;
 
     public TargetObject() {
-        value = "JavaGuide";
+        value = "interview-learning";
     }
 
     public void publicMethod(String s) {
