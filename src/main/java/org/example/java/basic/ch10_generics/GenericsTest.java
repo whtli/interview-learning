@@ -1,4 +1,4 @@
-package org.example.java.basic.ch7_generics;
+package org.example.java.basic.ch10_generics;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
