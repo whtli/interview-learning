@@ -1,4 +1,4 @@
-package org.example.java.basic.ch6_sugar;
+package org.example.java.basic.ch15_sugar;
 
 /**
  * @author: whtli
@@ -7,12 +7,14 @@ package org.example.java.basic.ch6_sugar;
  */
 public class VariableArguments {
     public static void main(String[] args) {
-        print("Holis", "公众号:Hollis", "博客：www.hollischuang.com", "QQ：907607222");
+        print("whtli", "公众号:whtli", "博客：http://hexo.whtli.cn/", "QQ：123456789");
+        print("公众号:whtli", "博客：http://hexo.whtli.cn/");
     }
 
     public static void print(String... strs) {
         for (String str : strs) {
             System.out.println(str);
         }
+        System.out.println();
     }
 }

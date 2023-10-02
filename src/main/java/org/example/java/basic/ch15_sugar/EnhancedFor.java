@@ -1,4 +1,4 @@
-package org.example.java.basic.ch6_sugar;
+package org.example.java.basic.ch15_sugar;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,12 +21,14 @@ public class EnhancedFor {
         // Iterator 在工作的时候是不允许被迭代的对象被改变的
         // 可以使用 Iterator 本身的方法remove()来删除对象
         // Iterator.remove() 方法会在删除当前迭代对象的同时维护索引的一致性
-//        for (String stu : strList) {
-//            if (stu.contains("whtli"))
-//                strList.remove(stu);
-//        }
 
-        // 使用Iterator.remove()方法
+        // 这段删除逻辑会报错
+        /*for (String stu : strList) {
+            if (stu.contains("whtli"))
+                strList.remove(stu);
+        }*/
+
+        // 使用Iterator.remove()方法，不会报错
         Iterator<String> iterator = strList.iterator();
         while (iterator.hasNext()) {
             String stu = iterator.next();
@@ -35,8 +37,9 @@ public class EnhancedFor {
             }
         }
         strList.forEach(System.out::println);
+        System.out.println();
 
-        // lambda表达式
+        // 借助lambda表达式删除目标元素
         strList.removeIf(stu -> stu.contains("cn"));
         strList.forEach(System.out::println);
     }

@@ -1,4 +1,4 @@
-package org.example.java.basic.ch6_sugar;
+package org.example.java.basic.ch15_sugar;
 
 import java.io.*;
 import java.nio.file.Files;
