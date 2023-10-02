@@ -1,4 +1,4 @@
-package org.example.java.basic.ch3_proxy;
+package org.example.java.basic.ch12_proxy;
 
 /**
  * @author: whtli

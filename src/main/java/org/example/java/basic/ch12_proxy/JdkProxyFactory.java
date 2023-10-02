@@ -1,4 +1,4 @@
-package org.example.java.basic.ch3_proxy;
+package org.example.java.basic.ch12_proxy;
 
 import java.lang.reflect.Proxy;
 
@@ -10,8 +10,6 @@ import java.lang.reflect.Proxy;
 public class JdkProxyFactory {
     /**
      * getProxy()：主要通过Proxy.newProxyInstance（）方法获取某个类的代理对象
-     * @param target
-     * @return
      */
     public static Object getProxy(Object target) {
         return Proxy.newProxyInstance(
