@@ -2,6 +2,9 @@ package org.example.java.basic.ch13_big_decimal;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * @author: whtli
@@ -208,5 +211,25 @@ public class BigDecimalUtil {
 
         double ret11 = compareTo(2.43d, 2.44d);
         System.out.println(ret11);
+
+        // 是BigDecimal的compareTo方法与equals方法不一致
+        // 注意，是BigDecimal类，不是构造实例时的参数类型
+        System.out.println();
+
+        TreeSet<BigDecimal> treeSet = new TreeSet<>();
+        // TreeSet在添加元素时是借助compareTo方法来判等的，new BigDecimal("1.0")与new BigDecimal("1.00")在compareTo看来是不相同的
+        // 源码注释：Two BigDecimal objects that are equal in value but have a different scale (like 2.0 and 2.00) are considered equal by this method.
+        treeSet.add(new BigDecimal("1.0"));
+        treeSet.add(new BigDecimal("1.00"));
+        // 输出[1.0]
+        System.out.println(treeSet);
+
+        HashSet<BigDecimal> hashSet = new HashSet<>();
+        // HashSet在添加元素时是借助equals方法来判等的，new BigDecimal("1.0")与new BigDecimal("1.00")在equals看来是不相同的
+        // 源码注释：Unlike compareTo, this method considers two BigDecimal objects equal only if they are equal in value and scale (thus 2.0 is not equal to 2.00 when compared by this method).
+        hashSet.add(new BigDecimal("1.0"));
+        hashSet.add(new BigDecimal("1.00"));
+        // 输出[1.0, 1.00]
+        System.out.println(hashSet);
     }
 }
