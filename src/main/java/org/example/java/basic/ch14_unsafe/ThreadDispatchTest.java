@@ -32,7 +32,7 @@ public class ThreadDispatchTest {
             }
         }).start();
 
-        System.out.println("park main mainThread");
+        System.out.println("park mainThread success");
         unsafe.park(false, 0L);
         System.out.println("unpark mainThread success");
     }

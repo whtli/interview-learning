@@ -1,5 +1,7 @@
 package org.example.java.basic.ch06_copy;
 
+import java.util.Comparator;
+
 /**
  * @author: whtli
  * @date: 2023/07/08
@@ -10,10 +12,26 @@ public class CopyTest {
         Person person1 = new Person(new Address("Beijing"));
         Person person2 = person1.clone();
         System.out.println(person1.getAddress() == person2.getAddress());
+
+        // 在数组上调用clone返回的数组，其编译时的类型与被克隆数组的类型相同，不需要进行强制类型转换
+        // 比如下方代码不需要写成  int[] now = (int[]) ori.clone()
+        int[] ori = {1, 2, 3};
+        int[] now = ori.clone();
+        for (int i : ori) {
+            System.out.print(i);
+        }
+        System.out.println();
+        for (int i : now) {
+            System.out.print(i);
+        }
+        System.out.println();
+        System.out.println(ori);
+        System.out.println(now);
+        System.out.println(ori.equals(now));
     }
 }
 
-class Address implements Cloneable {
+class Address implements Cloneable{
     private String name;
 
     public Address(String name) {

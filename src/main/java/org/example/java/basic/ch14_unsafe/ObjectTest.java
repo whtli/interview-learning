@@ -21,6 +21,7 @@ public class ObjectTest {
     }
 
     public static void objTest(Unsafe unsafe) throws Exception {
+        System.out.println("-------------A-------------");
         A a1 = new A();
         System.out.println(a1.getA());
         A a2 = A.class.newInstance();
@@ -31,8 +32,7 @@ public class ObjectTest {
         System.out.println(a3.getA());
 
 
-        System.out.println();
-
+        System.out.println("\n-------------B-------------");
         // B类的构造函数为private类型，将无法通过构造函数和反射创建对象（可以通过构造函数对象setAccessible后创建对象），但allocateInstance方法仍然有效
         // 由于这种特性，allocateInstance 在 java.lang.invoke、Objenesis（提供绕过类构造器的对象生成方式）、Gson（反序列化时用到）中都有相应的应用
 //        B b1 = new B();
