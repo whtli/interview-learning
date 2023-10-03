@@ -17,6 +17,8 @@ public class ArrayListTest {
         deleteElementWhileTraversing();
         // ArrayList的clone能力
         cloneAbilityOfArrayList();
+        // 排序
+        compareAbility();
         // 其他功能
         elseAbilities();
     }
@@ -110,6 +112,34 @@ public class ArrayListTest {
         System.out.println();
     }
 
+    /**
+     * 比较
+     */
+    public static void compareAbility() {
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.add(-1);
+        arrayList.add(3);
+        arrayList.add(3);
+        arrayList.add(-5);
+        arrayList.add(7);
+        arrayList.add(4);
+        arrayList.add(-9);
+        arrayList.add(-7);
+        System.out.println("原始列表: " + arrayList);
+
+        // void sort(List list),按自然排序的升序排序
+        Collections.sort(arrayList);
+        System.out.println("默认排序: " + arrayList);
+        // 定制排序(此处实现为逆序)
+        Collections.sort(arrayList, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        System.out.println("定制排序: " + arrayList);
+        System.out.println();
+    }
 
     /**
      * 其他功能
