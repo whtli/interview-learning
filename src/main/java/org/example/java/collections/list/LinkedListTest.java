@@ -1,4 +1,4 @@
-package org.example.java.collections;
+package org.example.java.collections.list;
 
 import java.util.LinkedList;
 import java.util.List;
