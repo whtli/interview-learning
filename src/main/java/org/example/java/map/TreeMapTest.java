@@ -1,7 +1,8 @@
-package org.example.java.collections;
+package org.example.java.map;
 
 import lombok.Data;
 
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -12,7 +13,13 @@ import java.util.TreeMap;
  */
 public class TreeMapTest {
     public static void main(String[] args) {
-        TreeMap<Person, String> treeMap = new TreeMap<>();
+        // 相比于HashMap，TreeMap主要多了对集合中的元素根据键排序的能力以及对集合内元素的搜索的能力
+        TreeMap<Person, String> treeMap = new TreeMap<>(new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return Integer.compare(o2.getName().compareTo(o1.getName()), 0);
+            }
+        });
         treeMap.put(new Person("zhangsan", 30), "张三");
         treeMap.put(new Person("lisi", 20), "李四");
         treeMap.put(new Person("wangwu", 10), "王五");
@@ -25,7 +32,7 @@ public class TreeMapTest {
 }
 
 @Data
-class Person implements Comparable<Person> {
+class Person {
     private String name;
     private int age;
 
@@ -35,6 +42,7 @@ class Person implements Comparable<Person> {
         this.age = age;
     }
 
+/*  如果重写compareTo，而不是在定义TreeMap的时候new Comparator，需要让Person类实现Comparable接口：implements Comparable<Person>
     @Override
     public int compareTo(Person o) {
         // 简写版
@@ -48,6 +56,6 @@ class Person implements Comparable<Person> {
             return -1;
         }
         return 0;
-    }
+    }*/
 }
 
