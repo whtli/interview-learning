@@ -15,10 +15,12 @@ import java.util.stream.Collectors;
 public class HashMapTest {
     public static void main(String[] args) {
         Map<Integer, Integer> map = new HashMap<>();
-//        basicAbility(map);
-//        IterationAbility(map);
+        basicAbility(map);
+        IterationAbility(map);
         transAbility();
+        elseAbilities();
     }
+
 
     private static void basicAbility(Map<Integer, Integer> map) {
         System.out.println("map.size(): " + map.size());
@@ -85,5 +87,29 @@ public class HashMapTest {
         // bookList.add(new Person("wangwu", null));
         Map<String, String> collect = bookList.stream().collect(Collectors.toMap(Person::getName, Person::getPhone));
         System.out.println(collect);
+    }
+
+    /**
+     * HashMap其他常用方法
+     */
+    private static void elseAbilities() {
+        Map<String, String> map = new HashMap<>();
+        // 键不能重复，值可以重复
+        map.put("san", "张三");
+        map.put("si", "李四");
+        map.put("wu", "王五");
+        map.put("lao", "老王");
+        map.put("lao", "老王1");
+        System.out.println("-------直接输出hashmap:-------");
+        System.out.println(map);
+        System.out.println("map.size()：" + map.size());
+        System.out.println("map.isEmpty()：" + map.isEmpty());
+        System.out.println(map.remove("si"));
+        System.out.println("map.remove()：" + map);
+        System.out.println("map.get(si)：" + map.get("si"));
+        System.out.println("map.containsKey(si)：" + map.containsKey("si"));
+        System.out.println("containsValue(李四)：" + map.containsValue("李四"));
+        System.out.println(map.replace("wu", "王五2"));
+        System.out.println("map.replace(wu, 王五2):" + map);
     }
 }
