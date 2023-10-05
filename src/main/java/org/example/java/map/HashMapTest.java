@@ -1,10 +1,11 @@
 package org.example.java.map;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * @author: whtli
@@ -14,6 +15,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HashMapTest {
     public static void main(String[] args) {
         Map<Integer, Integer> map = new HashMap<>();
+//        basicAbility(map);
+//        IterationAbility(map);
+        transAbility();
+    }
+
+    private static void basicAbility(Map<Integer, Integer> map) {
         System.out.println("map.size(): " + map.size());
         map.put(1, 2);
         map.put(2, 3);
@@ -24,7 +31,10 @@ public class HashMapTest {
         map.put(6, null);
         map.put(7, null);
         System.out.println("map.size(): " + map.size());
+    }
 
+
+    private static void IterationAbility(Map<Integer, Integer> map) {
         // 遍历方式
         System.out.println("\n-------1.迭代器 EntrySet-------");
         Iterator<Map.Entry<Integer, Integer>> iterator1 = map.entrySet().iterator();
@@ -58,5 +68,22 @@ public class HashMapTest {
         // 7.Streams API 多线程
         System.out.println("\n-------7.Streams API 多线程-------");
         map.entrySet().parallelStream().forEach((entry) -> System.out.println(entry.getKey() + " " + entry.getValue()));
+    }
+
+    private static void transAbility() {
+        @Data
+        @AllArgsConstructor
+        class Person {
+            private String name;
+            private String phone;
+        }
+        List<Person> bookList = new ArrayList<>();
+        bookList.add(new Person("zhangsan", "Effective Java"));
+        bookList.add(new Person("lisi", "Core Java"));
+        // 使用java.util.stream.Collectors类的toMap()方法将列表转为集合时，如果存在某个value为null，会抛NPE
+        // 以1.8为例，toMap方法中调用了Map接口的merge方法，而merge方法会先调用Objects.requireNonNull()判断value是否为空
+        // bookList.add(new Person("wangwu", null));
+        Map<String, String> collect = bookList.stream().collect(Collectors.toMap(Person::getName, Person::getPhone));
+        System.out.println(collect);
     }
 }
