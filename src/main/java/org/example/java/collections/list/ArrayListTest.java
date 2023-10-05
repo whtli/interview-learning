@@ -1,6 +1,7 @@
 package org.example.java.collections.list;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author: whtli
@@ -19,6 +20,8 @@ public class ArrayListTest {
         cloneAbilityOfArrayList();
         // 排序
         compareAbility();
+        // 与数组之间的转换
+        transferAbility();
         // 其他功能
         elseAbilities();
     }
@@ -176,5 +179,52 @@ public class ArrayListTest {
         }
         long endTime2 = System.currentTimeMillis();
         System.out.println("使用ensureCapacity方法后：" + (endTime2 - startTime2));
+    }
+
+
+    /**
+     * 与数组之间的转换
+     */
+    private static void transferAbility() {
+        // 数组转集合
+        String[] str = {"dog", "cat", "fish"};
+        List<String> list = new ArrayList<>(Arrays.asList(str));
+        System.out.println(list);
+        // 集合转数组
+        Collections.reverse(list);
+        str = list.toArray(new String[0]);
+        System.out.println(Arrays.toString(str));
+
+        // Arrays.asList()是泛型方法，传递的数组必须是对象数组，而不是基本类型
+        List myList = Arrays.asList(new int[]{1, 2, 3});
+        System.out.println(myList.size()); // 预期长度是3，实际是1
+        System.out.println(myList); // 会打印数组地址
+        int[] array = (int[]) myList.get(0); // 是数组
+        System.out.println(array[0]);
+
+        // 包装类可以使数组真正转为预期长度的List
+        List myList1 = Arrays.asList(new Integer[]{11, 22, 33});
+        System.out.println(myList1.size());
+        System.out.println(myList1);
+        int elem = (int) myList1.get(0);
+        System.out.println(elem);
+
+        // 直接使用Arrays.asList转换也不合理
+        // 错误写法
+        List<Integer> myList2 = Arrays.asList(1, 2, 3);
+        System.out.println(myList2);
+        System.out.println(myList.getClass()); // class java.util.Arrays$ArrayList
+        // 正确写法
+        List<Integer> myList3 = new ArrayList<>(Arrays.asList(7, 8, 9));
+        System.out.println(myList3);
+        System.out.println(myList3.getClass()); // class java.util.ArrayList
+
+        List<Integer> myList4 = Arrays.stream(new Integer[]{1, 2, 3}).collect(Collectors.toList());
+        System.out.println(myList4.getClass()); // class java.util.ArrayList
+
+        List<Integer> myList5 = Arrays.stream(new int[]{1, 2, 3}).boxed().collect(Collectors.toList()); // 依赖boxed装箱操作，基本类型也可以实现转换
+        System.out.println(myList5.getClass()); // class java.util.ArrayList
+        myList5.add(4);
+        System.out.println(myList5);
     }
 }
