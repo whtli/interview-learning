@@ -1,4 +1,4 @@
-package org.example.thread.pc;
+package org.example.ch01_java.ch04_concurrent.thread.producer_consumer;
 
 import java.util.Random;
 

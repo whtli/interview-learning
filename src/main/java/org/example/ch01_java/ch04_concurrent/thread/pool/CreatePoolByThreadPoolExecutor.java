@@ -1,4 +1,4 @@
-package org.example.thread.pool;
+package org.example.ch01_java.ch04_concurrent.thread.pool;
 
 import java.util.concurrent.*;
 

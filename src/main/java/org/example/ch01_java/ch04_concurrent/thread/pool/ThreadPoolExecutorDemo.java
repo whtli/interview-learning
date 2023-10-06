@@ -1,7 +1,8 @@
-package org.example.thread;
+package org.example.ch01_java.ch04_concurrent.thread.pool;
+
+import org.example.ch01_java.ch04_concurrent.thread.MyRunnable;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package org.example.thread;
+package org.example.ch01_java.ch04_concurrent.thread;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;

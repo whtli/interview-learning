@@ -1,6 +1,4 @@
-package org.example.thread.pc;
-
-import java.util.Random;
+package org.example.ch01_java.ch04_concurrent.thread.producer_consumer;
 
 /**
  * @author: whtli
