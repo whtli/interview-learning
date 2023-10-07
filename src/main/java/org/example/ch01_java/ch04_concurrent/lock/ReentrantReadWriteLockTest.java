@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent;
+package org.example.ch01_java.ch04_concurrent.lock;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 

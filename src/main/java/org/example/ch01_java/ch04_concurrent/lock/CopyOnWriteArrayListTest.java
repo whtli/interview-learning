@@ -1,4 +1,4 @@
-package org.example.locks;
+package org.example.ch01_java.ch04_concurrent.lock;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 

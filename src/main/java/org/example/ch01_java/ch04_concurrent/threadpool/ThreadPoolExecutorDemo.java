@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent.thread.pool;
+package org.example.ch01_java.ch04_concurrent.threadpool;
 
 import org.example.ch01_java.ch04_concurrent.thread.MyRunnable;
 

@@ -1,17 +1,17 @@
-package org.example.ch01_java.ch04_concurrent.thread.producer_consumer;
+package org.example.ch01_java.ch04_concurrent.producer_consumer;
 
 /**
  * @author: whtli
  * @date: 2023/04/09
  * @description:
  */
-public class ProducerAndConsumerTest1 {
+public class ProducerAndConsumerTest {
     private static final int FULL = 10;
     private static int count = 0;
     private Object object = new Object();
 
     public static void main(String[] args) {
-        ProducerAndConsumerTest1 test1 = new ProducerAndConsumerTest1();
+        ProducerAndConsumerTest test1 = new ProducerAndConsumerTest();
         new Thread(test1.new Producer()).start();
         new Thread(test1.new Consumer()).start();
         new Thread(test1.new Producer()).start();

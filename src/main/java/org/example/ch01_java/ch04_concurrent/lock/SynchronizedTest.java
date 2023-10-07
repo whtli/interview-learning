@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent;
+package org.example.ch01_java.ch04_concurrent.lock;
 
 /**
  * @author: whtli

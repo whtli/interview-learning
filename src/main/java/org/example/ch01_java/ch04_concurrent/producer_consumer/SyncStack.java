@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent.thread.producer_consumer;
+package org.example.ch01_java.ch04_concurrent.producer_consumer;
 
 import java.util.ArrayList;
 import java.util.List;
