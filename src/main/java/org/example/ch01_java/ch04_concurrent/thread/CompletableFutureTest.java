@@ -11,11 +11,12 @@ import java.util.concurrent.*;
  */
 public class CompletableFutureTest {
     public static void main(String[] args) {
-        List<Object> result = getResult();
-        System.out.println(result);
+        int timeout = 4000;
+        List<Object> result = getResult(timeout);
+        System.out.println("共有以下任务顺利完成：" + result);
     }
 
-    public static List<Object> getResult() {
+    public static List<Object> getResult(int timeout) {
         CompletableFuture<Integer> task1 = CompletableFuture.supplyAsync(() -> {
             // 模拟任务1，睡眠0.5秒
             try {
@@ -48,7 +49,7 @@ public class CompletableFutureTest {
 
         List<Object> ans = new ArrayList<>();
         try {
-            Thread.sleep(4000);
+            Thread.sleep(timeout);
             CompletableFuture<Void> res = CompletableFuture.allOf(task1, task2, task3);
             // CompletableFuture<Object> res = CompletableFuture.anyOf(task1, task2, task3);
             System.out.println(res);
