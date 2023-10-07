@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author: whtli
  * @date: 2023/03/06
- * @description:
+ * @description: 创建一个ThreadPoolExecutor的Demo
  */
 public class ThreadPoolExecutorDemo {
     private static final int CORE_POOL_SIZE = 5;
@@ -31,9 +31,7 @@ public class ThreadPoolExecutorDemo {
             executor.execute(worker);
         }
         executor.shutdown();
-        while (!executor.isTerminated()) {
-
-        }
+        while (!executor.isTerminated()) {}
         System.out.println("Finished all threads");
     }
 
