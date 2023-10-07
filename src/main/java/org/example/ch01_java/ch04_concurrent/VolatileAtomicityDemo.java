@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent.thread;
+package org.example.ch01_java.ch04_concurrent;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -9,8 +9,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class ReentrantReadWriteLockTest {
     public static void main(String[] args) {
-        ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
-        lock.readLock();
-        lock.writeLock();
+        // 默认非公平
+        ReentrantReadWriteLock lock1 = new ReentrantReadWriteLock();
+        lock1.readLock();
+        lock1.writeLock();
+
+        // 指定公平
+        ReentrantReadWriteLock lock2 = new ReentrantReadWriteLock(true);
+        lock2.readLock();
+        lock2.writeLock();
     }
 }
