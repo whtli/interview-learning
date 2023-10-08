@@ -1,11 +1,11 @@
-package org.example.ch01_java.ch04_concurrent.thread;
+package org.example.ch01_java.ch04_concurrent.threadpool;
 
 import java.util.Date;
 
 /**
  * @author: whtli
  * @date: 2023/03/06
- * @description: ThreadPoolExecutor 示例代码
+ * @description: 创建一个Runnable接口的实现类
  */
 public class MyRunnable implements Runnable {
     private String command;
