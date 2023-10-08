@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent.thread;
+package org.example.ch01_java.ch04_concurrent.relate_problems;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
@@ -7,15 +7,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author: whtli
  * @date: 2023/04/06
- * @description:
+ * @description: LeetCode1114.按序打印
+ * 借助AtomicInteger、Semaphore、CountDownLatch实现
+ * https://leetcode.cn/problems/print-in-order/description/
  */
 public class Foo {
 
 }
 
 class Foo1 {
-    private AtomicInteger flag12;
-    private AtomicInteger flag23;
+    private AtomicInteger flag12, flag23;
 
     public Foo1() {
         flag12 = new AtomicInteger(0);
@@ -46,8 +47,7 @@ class Foo1 {
 }
 
 class Foo2 {
-    private Semaphore flag12;
-    private Semaphore flag23;
+    private Semaphore flag12, flag23;
 
     public Foo2() {
         flag12 = new Semaphore(0);
@@ -76,8 +76,7 @@ class Foo2 {
 }
 
 class Foo3 {
-    private CountDownLatch flag12;
-    private CountDownLatch flag23;
+    private CountDownLatch flag12, flag23;
 
     public Foo3() {
         flag12 = new CountDownLatch(1);

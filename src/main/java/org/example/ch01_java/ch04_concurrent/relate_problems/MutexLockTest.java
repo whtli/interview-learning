@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent;
+package org.example.ch01_java.ch04_concurrent.relate_problems;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
