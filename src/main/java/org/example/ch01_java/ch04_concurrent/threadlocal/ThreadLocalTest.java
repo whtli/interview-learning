@@ -1,7 +1,9 @@
 package org.example.ch01_java.ch04_concurrent.threadlocal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -39,6 +41,37 @@ public class ThreadLocalTest {
             int hashCode = nextHashCode.getAndAdd(HASH_INCREMENT);
             int bucket = hashCode & 15;
             System.out.println(i + "在桶中的位置：" + bucket);
+        }
+    }
+}
+
+class ThreadLocalExample implements Runnable {
+    private static final ThreadLocal<SimpleDateFormat> formatter = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MMdd-HHmm"));
+
+    @Override
+    public void run() {
+        System.out.println("Thread Name : " + Thread.currentThread().getName() + "; Default Formatter : " + formatter.get().toPattern());
+        try {
+            Thread.sleep(new Random().nextInt(1000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // formatter的样式在此处被当前线程更改，但这个变更不会影响到其他线程
+        formatter.set(new SimpleDateFormat());
+        System.out.println("Thread Name : " + Thread.currentThread().getName() + "; Default Formatter : " + formatter.get().toPattern());
+    }
+
+    public static void main(String[] args) {
+        ThreadLocalExample obj = new ThreadLocalExample();
+        // 观察输出结果可以得知，虽然Thread-i已经改变了formatter的值，但Thread-j默认格式化值与初始化值相同
+        for (int i = 0; i < 5; i++) {
+            Thread t = new Thread(obj, "" + i);
+            try {
+                Thread.sleep(new Random().nextInt(1000));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            t.start();
         }
     }
 }

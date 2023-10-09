@@ -3,22 +3,19 @@ package org.example.ch01_java.ch04_concurrent.thread;
 /**
  * @author: whtli
  * @date: 2023/03/31
- * @description:
+ * @description: 通过继承Thread类创建线程
  */
-public class CreateThreadByThread extends Thread{
-    private int number;
-
-    public CreateThreadByThread () {
-        number = 10010;
-    }
-
+public class CreateThreadByThread {
     public static void main(String[] args) {
-        CreateThreadByThread thread1 = new CreateThreadByThread();
+        System.out.println("主线程名称：" + Thread.currentThread().getName());
+        Thread thread1 = new MyThread();
         thread1.start();
     }
+}
 
+class MyThread extends Thread {
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " 使用Thread创建线程测试" + this.number);
+        System.out.println("当前线程名称：" + Thread.currentThread().getName() + "：继承Thread类创建线程测试");
     }
 }

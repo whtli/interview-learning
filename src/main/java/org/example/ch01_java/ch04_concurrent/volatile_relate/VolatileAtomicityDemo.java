@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent;
+package org.example.ch01_java.ch04_concurrent.volatile_relate;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
