@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch04_concurrent.thread;
+package org.example.ch01_java.ch04_concurrent.future;
 
 import java.util.concurrent.*;
 
