@@ -1,0 +1,6 @@
+// 字�HIJK�转换为字符流的桥梁
+public class InputStreamReader extends Reader {
+}
+// 用于读取字符文件
+public class FileReader extends InputStreamReader {
+}
