@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch05_jvm;
+package org.example.ch01_java.ch06_jvm;
 
 /**
  * @author: whtli
