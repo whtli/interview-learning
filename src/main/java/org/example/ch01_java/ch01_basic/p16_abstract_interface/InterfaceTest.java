@@ -16,9 +16,17 @@ interface Interface1 {
     // public Interface1() {}
 
     /**
+     * 公有方法，可以被实现类重写
      * 不可以有方法体
      */
     public int method1();
+
+    /**
+     * 默认方法，可以被实现类重写
+     */
+    default void method2() {
+        System.out.println("This is a default method in the interface.");
+    }
 }
 
 interface Interface2 {
@@ -35,7 +43,7 @@ interface Interface3<T> {
     /**
      * 可以定义泛型接口
      */
-    public T method2();
+    public T method3();
 }
 
 /**
@@ -49,7 +57,13 @@ class InterfaceMultipleImplementation implements Interface1, Interface2, Interfa
     }
 
     @Override
-    public String method2() {
+    public void method2() {
+        Interface1.super.method2();
+        System.out.println("这是被重写的method2");
+    }
+
+    @Override
+    public String method3() {
         String ans = "InterfaceMultipleImplementation";
         System.out.println(ans);
         return ans;
@@ -60,5 +74,6 @@ class InterfaceMultipleImplementation implements Interface1, Interface2, Interfa
         System.out.println(InterfaceMultipleImplementation.CONSTANT_VALUE1);
         InterfaceMultipleImplementation test = new InterfaceMultipleImplementation();
         test.method2();
+        test.method3();
     }
 }
