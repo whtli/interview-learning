@@ -1,4 +1,4 @@
-package org.example.algorithm;
+package org.example.other;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,26 +7,31 @@ import java.util.Stack;
 /**
  * @author: Li Qiang
  * @date: 2023/7/26
- * @description: 全排列问题，递归实现、非递归实现
+ * @description: 全排列问题
+ * 非递归实现（只适用于元素无重复的情况）
+ * 递归实现
  */
 public class Permutation {
     public static void main(String[] args) {
         Solution1 solution1 = new Solution1();
-        int[] nums1 = {1, 2, 3, 4};
+        int[] nums1 = {1, 2, 3, 3};
         List<List<Integer>> permutations1 = solution1.permute(nums1);
         // 输出验证
-        for (List<Integer> permutation : permutations1) {
+        /*for (List<Integer> permutation : permutations1) {
             System.out.println(permutation);
-        }
+        }*/
+        System.out.println(permutations1.size());
+        System.out.println();
 
         Solution2 solution2 = new Solution2();
-        int[] nums2 = {8, 7, 6, 5};
+        int[] nums2 = {1, 2, 3, 3};
         List<List<Integer>> permutations2 = solution2.permute(nums2);
         // 输出验证
-        for (List<Integer> permutation : permutations2) {
+        /*for (List<Integer> permutation : permutations2) {
             System.out.println(permutation);
-        }
-
+        }*/
+        System.out.println(permutations2.size());
+        System.out.println();
     }
 }
 
