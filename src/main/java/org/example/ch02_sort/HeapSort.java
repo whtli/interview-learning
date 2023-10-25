@@ -1,4 +1,4 @@
-package org.example.sort;
+package org.example.ch02_sort;
 
 import java.util.ArrayList;
 import java.util.Collections;

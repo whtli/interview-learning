@@ -1,6 +1,4 @@
-package org.example.sort;
-
-import java.util.Arrays;
+package org.example.ch02_sort;
 
 /**
  * @author: whtli

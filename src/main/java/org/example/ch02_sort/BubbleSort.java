@@ -1,4 +1,4 @@
-package org.example.sort;
+package org.example.ch02_sort;
 
 /**
  * @author: whtli
