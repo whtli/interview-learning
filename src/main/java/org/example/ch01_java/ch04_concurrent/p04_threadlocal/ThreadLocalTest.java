@@ -46,19 +46,19 @@ public class ThreadLocalTest {
 }
 
 class ThreadLocalExample implements Runnable {
-    private static final ThreadLocal<SimpleDateFormat> formatter = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MMdd-HHmm"));
+    private static final ThreadLocal<SimpleDateFormat> FORMATTER = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MMdd-HHmm"));
 
     @Override
     public void run() {
-        System.out.println("Thread Name : " + Thread.currentThread().getName() + "; Default Formatter : " + formatter.get().toPattern());
+        System.out.println("Thread Name : " + Thread.currentThread().getName() + "; Default FORMATTER : " + FORMATTER.get().toPattern());
         try {
             Thread.sleep(new Random().nextInt(1000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         // formatter的样式在此处被当前线程更改，但这个变更不会影响到其他线程
-        formatter.set(new SimpleDateFormat());
-        System.out.println("Thread Name : " + Thread.currentThread().getName() + "; Default Formatter : " + formatter.get().toPattern());
+        FORMATTER.set(new SimpleDateFormat());
+        System.out.println("Thread Name : " + Thread.currentThread().getName() + "; Default FORMATTER : " + FORMATTER.get().toPattern());
     }
 
     public static void main(String[] args) {

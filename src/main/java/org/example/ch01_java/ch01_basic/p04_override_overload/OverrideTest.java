@@ -7,33 +7,9 @@ import java.io.IOException;
  * @author: whtli
  * @date: 2023/09/11
  * @description: 重载和重写
- */
-
-/**
  * 重写，发生阶段：运行期
  */
-class ParentClass {
-    public String method1(String str) {
-        System.out.println("hello:" + str);
-        return str;
-    }
 
-    public Object method2(String str) {
-        return str;
-    }
-
-    public void method3() throws IOException {
-
-    }
-
-    protected void method4(String str) {
-        System.out.println("hello:" + str);
-    }
-}
-
-/**
- * 重写
- */
 public class OverrideTest extends ParentClass {
 
     /**
@@ -78,5 +54,24 @@ public class OverrideTest extends ParentClass {
         ParentClass overrideTest = new OverrideTest();
         overrideTest.method1("method1");
         overrideTest.method4("method2");
+    }
+}
+
+class ParentClass {
+    public String method1(String str) {
+        System.out.println("hello:" + str);
+        return str;
+    }
+
+    public Object method2(String str) {
+        return str;
+    }
+
+    public void method3() throws IOException {
+
+    }
+
+    protected void method4(String str) {
+        System.out.println("hello:" + str);
     }
 }

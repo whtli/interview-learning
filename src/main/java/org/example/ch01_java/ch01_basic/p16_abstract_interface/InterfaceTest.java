@@ -16,8 +16,8 @@ interface Interface1 {
     // public Interface1() {}
 
     /**
-     * 公有方法，可以被实现类重写
-     * 不可以有方法体
+     * 公有方法，可以被实现类重写，不可以有方法体
+     * @return 整数
      */
     public int method1();
 
@@ -42,6 +42,7 @@ interface Interface2 {
 interface Interface3<T> {
     /**
      * 可以定义泛型接口
+     * @return 泛型
      */
     public T method3();
 }

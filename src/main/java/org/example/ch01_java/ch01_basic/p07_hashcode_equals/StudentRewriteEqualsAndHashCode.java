@@ -12,6 +12,52 @@ import static java.util.Objects.hash;
  * 关键点:重写equals()和hashCode()
  */
 
+
+public class StudentRewriteEqualsAndHashCode {
+    public static void main(String[] args) {
+        Student sdu1 = new Student(1, "zhangsan", 1);
+        Student sdu2 = new Student(2, "lisi", 2);
+        Student sdu3 = new Student(2, "lisi", 2);
+        Student sdu4 = new Student(4, "zhaoliu", 3);
+        Student sdu5 = new Student(5, "sunqi", 3);
+        System.out.println(sdu2.hashCode());
+        System.out.println(sdu3.hashCode());
+        System.out.println(sdu2.hashCode() == sdu3.hashCode());
+        System.out.println(sdu2.equals(sdu3));
+        System.out.println("------------------------------------------");
+
+        List<Student> list = Arrays.asList(sdu1, sdu2, sdu3, sdu4, sdu5);
+        Map<Integer, List<Student>> map = new HashMap<>();
+        Map<Student, Integer> map2 = new HashMap<>();
+        for (Student sdu : list) {
+            map.putIfAbsent(sdu.getClassId(), new ArrayList<>());
+            List<Student> students = map.get(sdu.getClassId());
+            if (!students.contains(sdu)) {
+                students.add(sdu);
+            }
+        }
+
+        for (Map.Entry<Integer, List<Student>> entry : map.entrySet()) {
+            System.out.println("class id : " + entry.getKey());
+            System.out.println(entry.getValue());
+            System.out.println();
+        }
+        System.out.println("------------------------------------------");
+
+        for (Student sdu : list) {
+            map2.putIfAbsent(sdu, sdu.getId());
+        }
+        List<Map.Entry<Student, Integer>> list2 = new ArrayList<>(map2.entrySet());
+        list2.sort((o1, o2) -> o1.getValue() - o2.getValue());
+        for (Map.Entry<Student, Integer> entry : list2) {
+            System.out.println("student id : " + entry.getValue());
+            System.out.println(entry.getKey());
+            System.out.println();
+        }
+    }
+}
+
+
 class Student {
     private int id;
     private String name;
@@ -55,49 +101,5 @@ class Student {
     @Override
     public String toString() {
         return "Student {" + "id=" + id + ", name=" + name + ", classId=" + classId + "}";
-    }
-}
-
-public class StudentRewriteEqualsAndHashCode {
-    public static void main(String[] args) {
-        Student sdu1 = new Student(1, "zhangsan", 1);
-        Student sdu2 = new Student(2, "lisi", 2);
-        Student sdu3 = new Student(2, "lisi", 2);
-        Student sdu4 = new Student(4, "zhaoliu", 3);
-        Student sdu5 = new Student(5, "sunqi", 3);
-        System.out.println(sdu2.hashCode());
-        System.out.println(sdu3.hashCode());
-        System.out.println(sdu2.hashCode() == sdu3.hashCode());
-        System.out.println(sdu2.equals(sdu3));
-        System.out.println("------------------------------------------");
-
-        List<Student> list = Arrays.asList(sdu1, sdu2, sdu3, sdu4, sdu5);
-        Map<Integer, List<Student>> map = new HashMap<>();
-        Map<Student, Integer> map2 = new HashMap<>();
-        for (Student sdu : list) {
-            map.putIfAbsent(sdu.getClassId(), new ArrayList<>());
-            List<Student> students = map.get(sdu.getClassId());
-            if (!students.contains(sdu)) {
-                students.add(sdu);
-            }
-        }
-
-        for (Map.Entry<Integer, List<Student>> entry : map.entrySet()) {
-            System.out.println("class id : " + entry.getKey());
-            System.out.println(entry.getValue());
-            System.out.println();
-        }
-        System.out.println("------------------------------------------");
-
-        for (Student sdu : list) {
-            map2.putIfAbsent(sdu, sdu.getId());
-        }
-        List<Map.Entry<Student, Integer>> list2 = new ArrayList<>(map2.entrySet());
-        list2.sort((o1, o2) -> o1.getValue() - o2.getValue());
-        for (Map.Entry<Student, Integer> entry : list2) {
-            System.out.println("student id : " + entry.getValue());
-            System.out.println(entry.getKey());
-            System.out.println();
-        }
     }
 }

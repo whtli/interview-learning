@@ -1,17 +1,15 @@
 package org.example.ch01_java.ch01_basic.p04_override_overload;
 
-/**
- * @author: whtli
- * @date: 2023/09/11
- * @description: 重载和重写
- */
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
+ * @author: whtli
+ * @date: 2023/09/11
+ * @description: 重载和重写
  * 重载，发生阶段：编译期
  */
+
 public class OverloadTest {
     /**
      * 方法名必须相同

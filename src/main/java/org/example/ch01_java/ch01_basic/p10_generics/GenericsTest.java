@@ -75,6 +75,10 @@ class GenericChildClass extends GenericClass<String> {
  * @param <T>
  */
 interface GenericInterface<T> {
+    /**
+     * 泛型方法测试
+     * @return 泛型
+     */
     public T method();
 }
 
@@ -201,7 +205,7 @@ class GenericStaticTest {
         gti.var = 1;
         GenericStatic<String> gts = new GenericStatic<String>();
         gts.var = 2;
-        System.out.println(gti.var);
+        System.out.println(GenericStatic.var);
     }
 }
 

@@ -8,10 +8,10 @@ import java.io.*;
  * @description: 随机访问流
  */
 public class RandomAccessTest {
-    public static final String fileInput = "src/main/java/org/example/ch01_java/ch05_io/file-input-random.txt";
+    public static final String FILE_INPUT = "src/main/java/org/example/ch01_java/ch05_io/file-input-random.txt";
 
     public static void main(String[] args) {
-        try (RandomAccessFile randomAccessFile = new RandomAccessFile(new File(fileInput), "rw")) {
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(new File(FILE_INPUT), "rw")) {
             System.out.println("读取之前的偏移量：" + randomAccessFile.getFilePointer()
                     + "，当前读取到的字符" + (char) randomAccessFile.read()
                     + "，读取之后的偏移量：" + randomAccessFile.getFilePointer());

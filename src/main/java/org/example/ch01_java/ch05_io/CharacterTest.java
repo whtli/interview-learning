@@ -9,8 +9,8 @@ import java.io.*;
  * 字符流可以避免乱码问题，默认是Unicode编码
  */
 public class CharacterTest {
-    public static final String fileInput = "src/main/java/org/example/ch01_java/ch05_io/file-input.txt";
-    public static final String fileOutput = "src/main/java/org/example/ch01_java/ch05_io/file-output.txt";
+    public static final String FILE_INPUT = "src/main/java/org/example/ch01_java/ch05_io/file-input.txt";
+    public static final String FILE_OUTPUT = "src/main/java/org/example/ch01_java/ch05_io/file-output.txt";
 
     public static void main(String[] args) {
         basicAbility();
@@ -18,7 +18,7 @@ public class CharacterTest {
 
     public static void basicAbility() {
         // 输入
-        try (FileReader fr = new FileReader(fileInput)) {
+        try (FileReader fr = new FileReader(FILE_INPUT)) {
             long skip = fr.skip(3);
             System.out.println("输入流中被忽略的字节数: " + skip);
 
@@ -32,7 +32,7 @@ public class CharacterTest {
         }
 
         // 输出
-        try (Writer output = new FileWriter(fileOutput)) {
+        try (Writer output = new FileWriter(FILE_OUTPUT)) {
             output.write("你好，我是whtli");
         } catch (IOException e) {
             e.printStackTrace();

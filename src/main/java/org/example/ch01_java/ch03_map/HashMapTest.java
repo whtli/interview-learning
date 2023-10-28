@@ -15,7 +15,7 @@ public class HashMapTest {
     public static void main(String[] args) {
         Map<Integer, Integer> map = new HashMap<>();
         basicAbility(map);
-        IterationAbility(map);
+        iterationAbility(map);
         transAbility();
         elseAbilities();
     }
@@ -35,7 +35,7 @@ public class HashMapTest {
     }
 
 
-    private static void IterationAbility(Map<Integer, Integer> map) {
+    private static void iterationAbility(Map<Integer, Integer> map) {
         // 遍历方式
         System.out.println("\n-------1.迭代器 EntrySet-------");
         Iterator<Map.Entry<Integer, Integer>> iterator1 = map.entrySet().iterator();

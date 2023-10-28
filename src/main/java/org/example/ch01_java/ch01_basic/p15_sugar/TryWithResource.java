@@ -37,9 +37,9 @@ public class TryWithResource {
     }
 
     static void copy(String src, String dst) throws IOException {
-        int BUFFER_SIZE = 1024;
+        int bufferSize = 1024;
         try (InputStream in = Files.newInputStream(Paths.get(src)); OutputStream out = Files.newOutputStream(Paths.get(dst))) {
-            byte[] buffer = new byte[BUFFER_SIZE];
+            byte[] buffer = new byte[bufferSize];
             int n;
             while ((n = in.read(buffer)) >= 0) {
                 out.write(buffer, 0, n);

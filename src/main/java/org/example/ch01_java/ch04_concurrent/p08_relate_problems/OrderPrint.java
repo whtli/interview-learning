@@ -1,10 +1,13 @@
 package org.example.ch01_java.ch04_concurrent.p08_relate_problems;
 
 import java.util.concurrent.atomic.AtomicInteger;
-
+/**
+ * @author: whtli
+ * @date: 2023/10/28
+ * @description: 三个线程按顺序打印1~100
+ */
 public class OrderPrint {
     public static void main(String[] args) {
-        // 三个线程按顺序打印1~100
         for (int i = 1; i <= 3; i++) {
             new MyThread("thread-" + i, i, (i % 3) + 1);
         }

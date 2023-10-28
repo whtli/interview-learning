@@ -8,9 +8,9 @@ import java.io.*;
  * @description: 字节缓冲流
  */
 public class ByteBufferTest {
-    private static final String fileInputPath = "src/main/java/org/example/ch01_java/ch05_io/Java开发手册(黄山版).pdf";
-    private static final String fileOutputPath1 = "src/main/java/org/example/ch01_java/ch05_io/Java开发手册(黄山版)-副本1.pdf";
-    private static final String fileOutputPath2 = "src/main/java/org/example/ch01_java/ch05_io/Java开发手册(黄山版)-副本2.pdf";
+    private static final String FILE_INPUT_PATH = "src/main/java/org/example/ch01_java/ch05_io/Java开发手册(黄山版).pdf";
+    private static final String FILE_OUTPUT_PATH1 = "src/main/java/org/example/ch01_java/ch05_io/Java开发手册(黄山版)-副本1.pdf";
+    private static final String FILE_OUTPUT_PATH2 = "src/main/java/org/example/ch01_java/ch05_io/Java开发手册(黄山版)-副本2.pdf";
 
     public static void main(String[] args) {
         copyWithoutByteArray();
@@ -32,8 +32,8 @@ public class ByteBufferTest {
     private static void copyPdfStream() {
         // 记录开始时间
         long start = System.currentTimeMillis();
-        try (FileInputStream fis = new FileInputStream(fileInputPath);
-             FileOutputStream fos = new FileOutputStream(fileOutputPath1)) {
+        try (FileInputStream fis = new FileInputStream(FILE_INPUT_PATH);
+             FileOutputStream fos = new FileOutputStream(FILE_OUTPUT_PATH1)) {
             int content;
             while ((content = fis.read()) != -1) {
                 fos.write(content);
@@ -49,8 +49,8 @@ public class ByteBufferTest {
     private static void copyPdfBufferStream() {
         // 记录开始时间
         long start = System.currentTimeMillis();
-        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileInputPath));
-             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(fileOutputPath1))) {
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(FILE_INPUT_PATH));
+             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(FILE_OUTPUT_PATH1))) {
             int content;
             while ((content = bis.read()) != -1) {
                 bos.write(content);
@@ -66,8 +66,8 @@ public class ByteBufferTest {
     public static void copyPdfStreamWithByteArrayStream() {
         // 记录开始时间
         long start = System.currentTimeMillis();
-        try (FileInputStream fis = new FileInputStream(fileInputPath);
-             FileOutputStream fos = new FileOutputStream(fileOutputPath2)) {
+        try (FileInputStream fis = new FileInputStream(FILE_INPUT_PATH);
+             FileOutputStream fos = new FileOutputStream(FILE_OUTPUT_PATH2)) {
             int len;
             byte[] bytes = new byte[4 * 1024];
             while ((len = fis.read(bytes)) != -1) {
@@ -84,8 +84,8 @@ public class ByteBufferTest {
     public static void copyPdfStreamWithByteArrayBufferStream() {
         // 记录开始时间
         long start = System.currentTimeMillis();
-        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileInputPath));
-             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(fileOutputPath2))) {
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(FILE_INPUT_PATH));
+             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(FILE_OUTPUT_PATH2))) {
             int len;
             byte[] bytes = new byte[4 * 1024];
             while ((len = bis.read(bytes)) != -1) {

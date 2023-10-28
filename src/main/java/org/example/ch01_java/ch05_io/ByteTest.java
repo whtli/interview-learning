@@ -12,9 +12,9 @@ import java.util.Arrays;
  * 如果不知道编码类型容易乱码
  */
 public class ByteTest {
-    public static final String fileInput = "src/main/java/org/example/ch01_java/ch05_io/file-input.txt";
-    public static final String fileOutput = "src/main/java/org/example/ch01_java/ch05_io/file-output.txt";
-    public static final String fileInputObject = "src/main/java/org/example/ch01_java/ch05_io/file-input-object.data";
+    public static final String FILE_INPUT = "src/main/java/org/example/ch01_java/ch05_io/file-input.txt";
+    public static final String FILE_OUTPUT = "src/main/java/org/example/ch01_java/ch05_io/file-output.txt";
+    public static final String FILE_INPUT_OBJECT = "src/main/java/org/example/ch01_java/ch05_io/file-input-object.data";
 
     public static void main(String[] args) throws IOException {
         basicAbility();
@@ -24,7 +24,7 @@ public class ByteTest {
 
     private static void basicAbility() {
         // 输入
-        try (FileInputStream fis = new FileInputStream(fileInput)) {
+        try (FileInputStream fis = new FileInputStream(FILE_INPUT)) {
             System.out.println("输入流中可以读取的字节数: " + fis.available());
 
             long skip = fis.skip(2);
@@ -41,8 +41,8 @@ public class ByteTest {
         System.out.println();
 
         // 输出
-        try (FileOutputStream output = new FileOutputStream(fileOutput)) {
-            byte[] array = fileInput.getBytes();
+        try (FileOutputStream output = new FileOutputStream(FILE_OUTPUT)) {
+            byte[] array = FILE_INPUT.getBytes();
             output.write(array);
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,9 +50,9 @@ public class ByteTest {
     }
 
     private static void newAbility() {
-        try (FileInputStream fis = new FileInputStream(fileInput)) {
-            byte[] bytes = fis.readAllBytes();
-            System.out.println(Arrays.toString(bytes));
+        try (FileInputStream fis = new FileInputStream(FILE_INPUT)) {
+            // byte[] bytes = fis.readAllBytes();
+            // System.out.println(Arrays.toString(bytes));
             System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,25 +61,25 @@ public class ByteTest {
 
     private static void combineAbility() {
         // 通常会配合BufferedInputStream（字节缓冲输入流）使用FileInputStream
-        try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(fileInput))) {
+        try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(FILE_INPUT))) {
             // 读取文件的内容并复制到String对象中（readAllBytes方法需要调整为jdk9或以上）
-            String result = new String(bufferedInputStream.readAllBytes());
-            System.out.println(result);
+            // String result = new String(bufferedInputStream.readAllBytes());
+            // System.out.println(result);
             System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // FileOutputStream通常也会配合BufferedOutputStream（字节缓冲输出流）来使用
-        try (FileOutputStream fileOutputStream = new FileOutputStream(fileOutput)) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(FILE_OUTPUT)) {
             BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream);
-            bos.write(fileInput.getBytes());
+            bos.write(FILE_INPUT.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // DataInputStream不能单独用于读取指定类型数据，必须结合其它流，如FileInputStream
-        try (FileInputStream fileInputStream = new FileInputStream(fileInput)) {
+        try (FileInputStream fileInputStream = new FileInputStream(FILE_INPUT)) {
             //必须将fileInputStream作为构造参数才能使用
             DataInputStream dataInputStream = new DataInputStream(fileInputStream);
             //可以读取任意具体的类型数据
@@ -93,7 +93,7 @@ public class ByteTest {
         }
 
         // DataOutputStream不能单独用于写入指定类型数据，必须结合其它流，如 FileOutputStream
-        try (FileOutputStream fileOutputStream = new FileOutputStream(fileOutput);) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(FILE_OUTPUT);) {
             // 输出流
             DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
             // 输出任意数据类型
@@ -104,14 +104,14 @@ public class ByteTest {
         }
 
         // ObjectOutputStream将对象写入到输出流(序列化)
-        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileInputObject))) {
+        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(FILE_INPUT_OBJECT))) {
             Person person = new Person("whtli", 123);
             output.writeObject(person);
         } catch (IOException e) {
             e.printStackTrace();
         }
         // ObjectInputStream用于从输入流中读取Java对象（反序列化）
-        try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(fileInputObject))) {
+        try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(FILE_INPUT_OBJECT))) {
             Person person = (Person) input.readObject();
             System.out.println(person.toString());
         } catch (IOException e) {

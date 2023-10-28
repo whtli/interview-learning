@@ -6,20 +6,28 @@ package org.example.ch01_java.ch01_basic.p16_abstract_interface;
  * @description: 接口和抽象类
  */
 public abstract class AbstractClassTest {
-    // 常量
+    /**
+     * 常量
+     */
     public final static int CONSTANT_VALUE = 100;
-    // 静态变量
+    /**
+     * 静态变量
+     */
     public static int STATIC_VALUE = 101;
-    // 实例变量
-    public int INSTANCE_VALUE;
+    /**
+     * 实例变量
+     */
+    public int instanceValue;
 
     /**
      * 可以不带方法体
+     * @return 整数
      */
     public abstract int method1();
 
     /**
      * 可以带方法体
+     * @return 整数
      */
     public int method2() {
         return 0;
@@ -34,7 +42,7 @@ class AbstractClassChild extends AbstractClassTest {
     }
 
     public AbstractClassChild(int val) {
-        this.INSTANCE_VALUE = val;
+        this.instanceValue = val;
     }
 
     /**
@@ -62,7 +70,7 @@ class AbstractInstance {
 
         AbstractClassChild abstractClassChild1 = new AbstractClassChild();
         AbstractClassChild abstractClassChild2 = new AbstractClassChild(103);
-        System.out.println(abstractClassChild1.INSTANCE_VALUE);
-        System.out.println(abstractClassChild2.INSTANCE_VALUE);
+        System.out.println(abstractClassChild1.instanceValue);
+        System.out.println(abstractClassChild2.instanceValue);
     }
 }

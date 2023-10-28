@@ -51,9 +51,10 @@ class ProducerConsumerExample {
                         break;
                     }
                 }
-                countDownLatch.countDown();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            } finally {
+                countDownLatch.countDown();
             }
         });
 

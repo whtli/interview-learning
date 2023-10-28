@@ -39,8 +39,9 @@ public class CasTest {
         while (true) {
             try {
                 long fieldOffset = unsafe.objectFieldOffset(CasTest.class.getDeclaredField("a"));
-                if (unsafe.compareAndSwapInt(this, fieldOffset, x - 1, x))
+                if (unsafe.compareAndSwapInt(this, fieldOffset, x - 1, x)){
                     break;
+                }
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
             }

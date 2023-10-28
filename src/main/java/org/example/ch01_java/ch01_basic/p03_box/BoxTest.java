@@ -9,16 +9,19 @@ package org.example.ch01_java.ch01_basic.p03_box;
  */
 public class BoxTest {
     public static void main(String[] args) {
-        Integer i = 10;  //装箱,等价于 Integer i = Integer.valueOf(10)
-        int n = i;   //拆箱,等价于 int n = i.intValue();
+        // 装箱,等价于 Integer i = Integer.valueOf(10)
+        Integer i = 10;
+        // 拆箱,等价于 int n = i.intValue();
+        int n = i;
         System.out.println(i == n);
     }
 
     private static long sum() {
         // 应该使用 long 而不是 Long，因为会频繁装箱
         Long sum = 0L;
-        for (long i = 0; i <= Integer.MAX_VALUE; i++)
+        for (long i = 0; i <= Integer.MAX_VALUE; i++) {
             sum += i;
+        }
         return sum;
     }
 }

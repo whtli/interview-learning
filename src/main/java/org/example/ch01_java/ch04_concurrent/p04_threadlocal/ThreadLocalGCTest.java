@@ -29,7 +29,6 @@ public class ThreadLocalGCTest {
 
     public static void test(String str, boolean isGC) {
         try {
-            // new ThreadLocal<>().set(str);
             ThreadLocal<Object> threadLocal = new ThreadLocal<>();
             threadLocal.set(str);
             if (isGC) {

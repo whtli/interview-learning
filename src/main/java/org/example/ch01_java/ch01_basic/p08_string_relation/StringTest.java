@@ -19,7 +19,8 @@ public class StringTest {
         String aa = "ab";
         // 直接返回字符串常量池中字符串对象”ab“的引用
         String bb = "ab";
-        System.out.println(aa == bb);// true
+        // true
+        System.out.println(aa == bb);
 
         // 常量池中的对象 str
         String str1 = "str";
@@ -39,7 +40,6 @@ public class StringTest {
         System.out.println(str4 == str5);
 
         // 字符串使用 final 关键字声明之后，可以让编译器当做常量来处理。
-
         final String str6 = "str";
         final String str7 = "ing";
         // 常量池中的对象，编译器在程序编译期就可以确定值的常量
@@ -191,10 +191,13 @@ class InternTest {
         // 直接返回字符串常量池中字符串对象”Java“对应的引用
         String s4 = s3.intern();
         // s1 和 s2 指向的是堆中的同一个对象
-        System.out.println(s1 == s2); // true
+        // true
+        System.out.println(s1 == s2);
         // s3 和 s4 指向的是堆中不同的对象
-        System.out.println(s3 == s4); // false
+        // false
+        System.out.println(s3 == s4);
         // s1 和 s4 指向的是堆中的同一个对象
-        System.out.println(s1 == s4); //true
+        //true
+        System.out.println(s1 == s4);
     }
 }

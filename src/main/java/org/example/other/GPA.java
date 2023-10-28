@@ -1,7 +1,11 @@
 package org.example.other;
 
 import java.util.*;
-
+/**
+ * @author: whtli
+ * @date: 2023/10/03
+ * @description: 绩点计算器
+ */
 public class GPA {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

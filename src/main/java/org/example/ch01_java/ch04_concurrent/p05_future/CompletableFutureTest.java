@@ -21,13 +21,11 @@ public class CompletableFutureTest {
     }
 
     private static void baseAbility() throws ExecutionException, InterruptedException, TimeoutException {
-        CompletableFuture<String> future = CompletableFuture.completedFuture("hello0!")
-                .thenApply(s -> s + " world0!");
+        CompletableFuture<String> future = CompletableFuture.completedFuture("hello0!").thenApply(s -> s + " world0!");
         System.out.println(future.get());
         // 这个调用将被忽略
         future.thenApply(s -> s + " nice0!");
         System.out.println(future.get());
-
 
         CompletableFuture<String> future1 = CompletableFuture.completedFuture("hello1!")
                 .thenApply(s -> s + " world1!").thenApply(s -> s + " nice1!");
@@ -69,7 +67,8 @@ public class CompletableFutureTest {
             }
             return "hello4!";
         }).exceptionally(ex -> {
-            System.out.println(ex.toString());// CompletionException
+            // CompletionException
+            System.out.println(ex.toString());
             return "world4!";
         });
         System.out.println(future4.get());
@@ -135,7 +134,6 @@ public class CompletableFutureTest {
             return result3 + result4 + result5;
         });
         System.out.println(result.get(0, TimeUnit.SECONDS));
-
         System.out.println();
     }
 
