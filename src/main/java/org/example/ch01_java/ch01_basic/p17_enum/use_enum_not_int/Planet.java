@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch01_basic.p17_enum;
+package org.example.ch01_java.ch01_basic.p17_enum.use_enum_not_int;
 
 /**
  * @author: whtli
