@@ -11,7 +11,20 @@ import static java.util.stream.Collectors.toSet;
  * @description: 最好不要使用序数来索引数组，而要使用EnumMap。如果是多维的可以嵌套使用EnumMap。
  */
 public class Plant {
-    enum LifeCycle {ANNUAL, PERENNIAL, BIENNIAL}
+    enum LifeCycle {
+        /*
+         一年生
+         */
+        ANNUAL,
+        /*
+         多年生
+         */
+        PERENNIAL,
+        /*
+         两年生
+         */
+        BIENNIAL
+    }
 
     final String name;
     final LifeCycle lifeCycle;
@@ -73,8 +86,8 @@ public class Plant {
          EnumMap版本总是给每一个Plant LifeCycle设计一个嵌套映射，基于stream的版本则仅当garden中包含了一种或多种Plant带有该LifeCycle时才会设计一个嵌套循环
          */
         System.out.println("\n------------使用stream------------");
-        System.out.println(Arrays.stream(garden).collect(groupingBy(p->p.lifeCycle)));
+        System.out.println(Arrays.stream(garden).collect(groupingBy(p -> p.lifeCycle)));
         // 在大量使用映射的程序中，这种使用有三种参数形式的Collectors.groupingBy方法，允许调用者利用map.Factory参数定义映射实现，是更优的选择，这与EnumMap版本的空间及时间性能吻合
-        System.out.println(Arrays.stream(garden).collect(groupingBy(p->p.lifeCycle, ()->new EnumMap<>(LifeCycle.class), toSet())));
+        System.out.println(Arrays.stream(garden).collect(groupingBy(p -> p.lifeCycle, () -> new EnumMap<>(LifeCycle.class), toSet())));
     }
 }
