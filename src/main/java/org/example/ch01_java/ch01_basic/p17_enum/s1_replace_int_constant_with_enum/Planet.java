@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch01_basic.p17_enum.use_enum_not_int;
+package org.example.ch01_java.ch01_basic.p17_enum.s1_replace_int_constant_with_enum;
 
 /**
  * @author: whtli
@@ -15,16 +15,28 @@ public enum Planet {
     URANUS(8.683e+25, 2.556e7),
     NEPTUNE(1.024e+26, 2.477e7);
 
-    // 行星质量
+    /**
+     * 行星质量
+     */
     private final double mass;
-    // 行星半径
+    /**
+     * 行星半径
+     */
     private final double radius;
-    // 行星的表面重力加速度
+    /**
+     * 行星的表面重力加速度
+     */
     private final double surfaceGravity;
-    // 万有引力常数
+    /**
+     * 万有引力常数
+     */
     private static final double G = 6.67300e-11;
 
-    // 构造器
+    /**
+     * 构造器
+     * @param mass 质量
+     * @param radius 半径
+     */
     Planet(double mass, double radius) {
         this.mass = mass;
         this.radius = radius;

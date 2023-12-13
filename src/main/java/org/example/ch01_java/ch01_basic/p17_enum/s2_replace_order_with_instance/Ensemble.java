@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch01_basic.p17_enum.use_instance_not_order;
+package org.example.ch01_java.ch01_basic.p17_enum.s2_replace_order_with_instance;
 
 /**
  * @author: whtli

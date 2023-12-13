@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch01_basic.p17_enum.use_enummap_not_order_index;
+package org.example.ch01_java.ch01_basic.p17_enum.s3_replace_order_index_with_enummap;
 
 import java.util.*;
 
@@ -8,7 +8,7 @@ import static java.util.stream.Collectors.toSet;
 /**
  * @author: whtli
  * @date: 2023/12/11
- * @description: 最好不要使用序数来索引数组，而要使用EnumMap。如果是多维的可以嵌套使用EnumMap。
+ * @description: 用EnumMap代替序数索引，如果是多维的可以嵌套使用EnumMap。
  */
 public class Plant {
     enum LifeCycle {
@@ -37,6 +37,23 @@ public class Plant {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Plant plant = (Plant) o;
+        return Objects.equals(name, plant.name) && lifeCycle == plant.lifeCycle;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, lifeCycle);
     }
 
     public static void main(String[] args) {

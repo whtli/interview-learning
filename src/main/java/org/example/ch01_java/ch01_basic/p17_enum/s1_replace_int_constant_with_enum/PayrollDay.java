@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch01_basic.p17_enum.use_enum_not_int;
+package org.example.ch01_java.ch01_basic.p17_enum.s1_replace_int_constant_with_enum;
 
 /**
  * @author: whtli
