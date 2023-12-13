@@ -1,4 +1,4 @@
-package org.example.ch01_java.ch01_basic.p17_enum.simulate_extensible_enum_with_interfaces;
+package org.example.ch01_java.ch01_basic.p17_enum.s4_simulate_extensible_enum_with_interfaces;
 
 /**
  * @author: whtli
