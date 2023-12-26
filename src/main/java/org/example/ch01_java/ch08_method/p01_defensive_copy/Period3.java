@@ -26,7 +26,10 @@ public class Period3 {
         }
     }
 
-    // repaired accessors - make defensive copies of internal fields（返回可变内部阈的保护性拷贝）
+    /**
+     * repaired accessors - make defensive copies of internal fields（返回可变内部阈的保护性拷贝）
+     * @return 日期
+     */
     public Date getStart() {
         // return start;
         return new Date(start.getTime());
