@@ -1,6 +1,7 @@
 package org.example.ch02_sort;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * @author: whtli
@@ -12,20 +13,25 @@ public class QuickSort {
         int[] nums1 = {3, 2, 3, 1, 2, 4, 5, 5, 6};
         int[] nums2 = {3, 2, 1, 5, 6, 4};
         int[] nums3 = {1, 2, 3, 8, 4, 5, 7};
-        int n1 = nums1.length;
-        int n2 = nums2.length;
-        int n3 = nums3.length;
+        int[] nums4 = {9, 2, 5, 5, 7};
+
         Sort1 sort1 = new Sort1();
         Sort2 sort2 = new Sort2();
         Sort3 sort3 = new Sort3();
-        sort1.quickSort(nums2, 0, n2 - 1);
-        sort2.quickSort(nums2, 0, n2 - 1);
-        sort3.quickSort(nums2, 0, n2 - 1);
-        Arrays.stream(nums2).forEach(System.out::print);
+        Sort4 sort4 = new Sort4();
+
+        sort1.quickSort(nums1, 0, nums1.length - 1);
+        sort2.quickSort(nums2, 0, nums2.length - 1);
+        sort3.quickSort(nums3, 0, nums3.length - 1);
+        sort4.quickSort(nums4);
+
+        Arrays.stream(nums1).forEach(System.out::print);
         System.out.println();
         Arrays.stream(nums2).forEach(System.out::print);
         System.out.println();
-        Arrays.stream(nums2).forEach(System.out::print);
+        Arrays.stream(nums3).forEach(System.out::print);
+        System.out.println();
+        Arrays.stream(nums4).forEach(System.out::print);
     }
 }
 
@@ -43,18 +49,17 @@ class Sort1 {
     /* 哨兵划分，以 nums[left] 作为基准数 */
     public int partition(int[] nums, int left, int right) {
         int base = left;
-        int l = left, r = right;
-        while (l < r) {
-            while (l < r && nums[r] >= nums[base]) {
-                r--;
+        while (left < right) {
+            while (left < right && nums[right] >= nums[base]) {
+                right--;
             }
-            while (l < r && nums[l] <= nums[base]) {
-                l++;
+            while (left < right && nums[left] <= nums[base]) {
+                left++;
             }
-            swap(nums, l, r);
+            swap(nums, left, right);
         }
-        swap(nums, l, base);
-        return l;
+        swap(nums, left, base);
+        return left;
     }
 
     public void swap(int[] nums, int i, int j) {
@@ -91,18 +96,17 @@ class Sort2 {
     /* 哨兵划分（三数取中值） */
     public int partition(int[] nums, int left, int right) {
         int base = medianThree(nums, left, (left + right) / 2, right);
-        int l = left, r = right;
-        while (l < r) {
-            while (l < r && nums[r] >= nums[base]) {
-                r--;
+        while (left < right) {
+            while (left < right && nums[right] >= nums[base]) {
+                right--;
             }
-            while (l < r && nums[l] <= nums[base]) {
-                l++;
+            while (left < right && nums[left] <= nums[base]) {
+                left++;
             }
-            swap(nums, l, r);
+            swap(nums, left, right);
         }
-        swap(nums, l, base);
-        return l;
+        swap(nums, left, base);
+        return left;
     }
 
     public void swap(int[] nums, int i, int j) {
@@ -134,18 +138,71 @@ class Sort3 {
 
     public int partition(int[] nums, int left, int right) {
         int base = left;
-        int l = left, r = right;
-        while (l < r) {
-            while (l < r && nums[r] >= nums[base]) {
-                r--;
+        while (left < right) {
+            while (left < right && nums[right] >= nums[base]) {
+                right--;
             }
-            while (l < r && nums[l] <= nums[base]) {
-                l++;
+            while (left < right && nums[left] <= nums[base]) {
+                left++;
             }
-            swap(nums, l, r);
+            swap(nums, left, right);
         }
-        swap(nums, l, base);
-        return l;
+        swap(nums, left, base);
+        return left;
+    }
+
+    public void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+}
+
+/* 非递归实现 */
+class Sort4 {
+    public void quickSort(int[] nums) {
+        if (nums == null || nums.length <= 1) {
+            return;
+        }
+
+        Stack<Integer> stack = new Stack();
+        // 初始待排序区间入栈
+        stack.push(0);
+        stack.push(nums.length - 1);
+
+        while (!stack.isEmpty()) {
+            // 逐对取出待排序区间
+            int end = stack.pop();
+            int start = stack.pop();
+
+            // 获取哨兵位置
+            int pivot = partition(nums, start, end);
+
+            // 分治
+            if (pivot - 1 > start) {
+                stack.push(start);
+                stack.push(pivot - 1);
+            }
+            if (pivot + 1 < end) {
+                stack.push(pivot + 1);
+                stack.push(end);
+            }
+        }
+    }
+
+    public int partition(int[] nums, int left, int right) {
+        int base = left;
+        while (left < right) {
+            while (left < right && nums[right] >= nums[base]) {
+                right--;
+            }
+            while (left < right && nums[left] <= nums[base]) {
+                left++;
+            }
+            swap(nums, left, right);
+        }
+        swap(nums, left, base);
+        return left;
     }
 
     public void swap(int[] nums, int i, int j) {
